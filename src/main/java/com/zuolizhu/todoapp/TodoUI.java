@@ -28,6 +28,7 @@ public class TodoUI extends UI {
 
     private void setupLayout() {
         root = new VerticalLayout();
+        root.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         setContent(root);
     }
     private void addHeader() {
