@@ -38,13 +38,18 @@ public class TodoUI extends UI {
         root.addComponent(header);
     }
     private void addForm() {
-        HorizontalLayout formlayout = new HorizontalLayout();
+        HorizontalLayout formLayout = new HorizontalLayout();
+        formLayout.setWidth("80%");
         TextField task = new TextField();
         Button add = new Button("Add");
-        formlayout.addComponents(task, add);
-        root.addComponent(formlayout);
+        add.addStyleName(ValoTheme.BUTTON_PRIMARY);
+
+        formLayout.addComponentsAndExpand(task);
+        formLayout.addComponents(add);
+        root.addComponent(formLayout);
     }
     private void addTodoList() {
+        todolayout.setWidth("80%");
         root.addComponent(todolayout);
     }
     private void addDeleteButton() {
