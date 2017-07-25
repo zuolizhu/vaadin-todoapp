@@ -3,6 +3,7 @@ package com.zuolizhu.todoapp;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -32,7 +33,9 @@ public class TodoUI extends UI {
         setContent(root);
     }
     private void addHeader() {
-        root.addComponent(new Label("Add your TODOs"));
+        Label header = new Label("Add your TODOs");
+        header.addStyleName(ValoTheme.LABEL_H1);
+        root.addComponent(header);
     }
     private void addForm() {
         HorizontalLayout formlayout = new HorizontalLayout();
