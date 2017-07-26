@@ -1,5 +1,6 @@
 package com.zuolizhu.todoapp;
 
+import com.vaadin.data.Binder;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
@@ -18,5 +19,9 @@ public class TodoItemLayout extends HorizontalLayout {
         addComponents(done);
         addComponentsAndExpand(text);
         setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
+
+        Binder<Todo> binder = new Binder<>(Todo.class);
+        binder.bindInstanceFields(this);
+        binder.setBean(todo);
     }
 }
