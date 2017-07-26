@@ -1,10 +1,12 @@
 package com.zuolizhu.todoapp;
 
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+import javafx.scene.input.KeyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -47,6 +49,15 @@ public class TodoUI extends UI {
         add.setIcon(VaadinIcons.PLUS);
         formLayout.addComponentsAndExpand(task);
         formLayout.addComponents(add);
+
+        add.addClickListener(clickEvent -> {
+            todolayout.add(new Todo(task.getValue()));
+            task.clear();
+            task.focus();
+        });
+        task.focus();
+        add.setClickShortcut(ShortcutAction.KeyCode.ENTER);
+
         root.addComponent(formLayout);
     }
     private void addTodoList() {

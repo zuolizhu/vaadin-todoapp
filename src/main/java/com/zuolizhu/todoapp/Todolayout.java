@@ -17,6 +17,10 @@ public class Todolayout extends VerticalLayout {
 
     @PostConstruct
     void init() {
+        update();
+    }
+
+    private void update() {
         setTodos(bucket.findAll());
     }
 
@@ -24,5 +28,10 @@ public class Todolayout extends VerticalLayout {
 
         removeAllComponents();
         todos.forEach(todo -> addComponent((new TodoItemLayout(todo))));
+    }
+
+    public void add(Todo todo) {
+        bucket.save(todo);
+        update();
     }
 }
