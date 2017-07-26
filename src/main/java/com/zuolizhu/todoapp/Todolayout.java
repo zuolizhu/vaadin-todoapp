@@ -34,4 +34,9 @@ public class Todolayout extends VerticalLayout {
         bucket.save(todo);
         update();
     }
+
+    public void deleteCompleted() {
+        bucket.deleteByDone(true);
+        update();
+    }
 }
