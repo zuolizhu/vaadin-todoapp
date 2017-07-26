@@ -1,9 +1,7 @@
 package com.zuolizhu.todoapp;
 
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.TextField;
+import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 
 
 public class TodoItemLayout extends HorizontalLayout {
@@ -15,6 +13,10 @@ public class TodoItemLayout extends HorizontalLayout {
         done = new CheckBox();
         text = new TextField();
 
-        addComponents(done, text);
+        text.addStyleName(ValoTheme.TEXTFIELD_BORDERLESS);
+
+        addComponents(done);
+        addComponentsAndExpand(text);
+        setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
     }
 }
